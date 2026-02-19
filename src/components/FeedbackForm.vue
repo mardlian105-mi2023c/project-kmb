@@ -11,7 +11,6 @@ const message = ref("");
       Mohon konfirmasi pesanan barang Anda:
     </h4>
 
-    <!-- RADIO -->
     <label
       class="flex items-center gap-3 border-2 border-red-400 rounded-xl p-4 mb-3 cursor-pointer"
     >
@@ -26,7 +25,6 @@ const message = ref("");
       Tidak sesuai
     </label>
 
-    <!-- TEXTAREA -->
     <div class="mt-4">
       <p class="text-sm text-gray-600 mb-1">Berikan Masukkan</p>
       <textarea

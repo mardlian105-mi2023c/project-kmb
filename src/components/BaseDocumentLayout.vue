@@ -1,6 +1,5 @@
 <template>
   <div class="min-h-screen bg-gray-100">
-    <!-- HEADER -->
     <div class="bg-red-600 px-4 py-3 flex items-center justify-between">
       <img src="@/assets/logo.svg" class="h-8 object-contain" />
 
@@ -12,7 +11,6 @@
     </div>
 
     <div class="max-w-6xl mx-auto px-4 py-6">
-      <!-- TEXT -->
       <div class="text-center max-w-xl mx-auto">
         <h2 class="font-semibold">Customer yang terhormat,</h2>
         <p class="text-gray-600 text-sm mt-2">
@@ -21,9 +19,7 @@
         </p>
       </div>
 
-      <!-- DOC MENU -->
       <div class="flex justify-center gap-8 mt-6 text-xs">
-        <!-- INVOICE -->
         <router-link
           to="/invoice"
           class="flex flex-col items-center gap-1"
@@ -50,7 +46,6 @@
           <span>INVOICE</span>
         </router-link>
 
-        <!-- SURAT JALAN -->
         <router-link
           to="/surat-jalan"
           class="flex flex-col items-center gap-1"
@@ -77,7 +72,6 @@
           <span>SURAT JALAN</span>
         </router-link>
 
-        <!-- DELIVERY ORDER -->
         <router-link
           to="/delivery-order"
           class="flex flex-col items-center gap-1"

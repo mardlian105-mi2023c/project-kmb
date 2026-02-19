@@ -5,7 +5,6 @@ import FeedbackForm from "@/components/FeedbackForm.vue";
 
 <template>
   <BaseDocumentLayout>
-    <!-- LEFT -->
     <div class="bg-white rounded-xl shadow p-6">
       <h3 class="font-bold text-lg mb-3">SURAT JALAN</h3>
 
@@ -32,8 +31,6 @@ import FeedbackForm from "@/components/FeedbackForm.vue";
         </tbody>
       </table>
     </div>
-
-    <!-- RIGHT -->
     <FeedbackForm />
   </BaseDocumentLayout>
 </template>

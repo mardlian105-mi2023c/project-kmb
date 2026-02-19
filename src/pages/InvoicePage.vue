@@ -6,7 +6,6 @@ import PaymentInfo from "@/components/PaymentInfo.vue";
 
 <template>
   <BaseDocumentLayout>
-    <!-- LEFT -->
     <div class="bg-white rounded-xl shadow p-6">
       <h3 class="font-bold text-lg mb-3">INVOICE</h3>
 
@@ -38,8 +37,6 @@ import PaymentInfo from "@/components/PaymentInfo.vue";
 
       <PaymentInfo />
     </div>
-
-    <!-- RIGHT -->
     <FeedbackForm />
   </BaseDocumentLayout>
 </template>

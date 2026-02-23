@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "result": {
+    "delivery": {
+      "deliv_id": "50233250803267",
+      "tanggal_kirim": "2025-12-10",
+      "customer": "PT Kencana Maju Bersama Kediri",
+      "alamat": "JL. KH. AHMAD DAHLAN NO .148 KEDIRI",
+      "driver": "Budi Santoso",
+      "vehicle": "L 1234 AB"
+    },
+    "items": [
+      { "nama": "Baja", "qty": 100, "satuan": "Kilogram" },
+      { "nama": "Baja", "qty": 50, "satuan": "Kilogram" },
+      { "nama": "Baja", "qty": 10, "satuan": "Kilogram" }
+    ]
+  }
+}

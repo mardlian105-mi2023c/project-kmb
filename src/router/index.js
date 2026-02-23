@@ -1,19 +1,21 @@
 import { createRouter, createWebHistory } from "vue-router";
-
-import InvoicePage from "../pages/InvoicePage.vue";
-import SuratJalanPage from "../pages/SuratJalanPage.vue";
-import DeliveryOrderPage from "../pages/DeliveryOrderPage.vue";
+import ConfirmDeliveryPage from "../pages/ConfirmDeliveryPage.vue";
 
 const routes = [
-  { path: "/", redirect: "/invoice" },
-  { path: "/invoice", component: InvoicePage },
-  { path: "/surat-jalan", component: SuratJalanPage },
-  { path: "/delivery-order", component: DeliveryOrderPage },
+  {
+    path: "/",
+    name: "home",
+    component: ConfirmDeliveryPage,
+  },
+
+  {
+    path: "/confirm-delivery/:id",
+    name: "confirm-delivery",
+    component: ConfirmDeliveryPage,
+  },
 ];
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(),
   routes,
 });
-
-export default router;

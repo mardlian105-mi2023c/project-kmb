@@ -1,18 +1,24 @@
 {
   "status": "success",
-  "result": {
-    "delivery": {
+  "result": [
+    {
+      "mill_id": "KMJ",
+      "tr_type": "D",
       "deliv_id": "50233250803267",
-      "tanggal_kirim": "2025-12-10",
-      "customer": "PT Kencana Maju Bersama Kediri",
-      "alamat": "JL. KH. AHMAD DAHLAN NO .148 KEDIRI",
-      "driver": "Budi Santoso",
-      "vehicle": "L 1234 AB"
-    },
-    "items": [
-      { "nama": "Baja", "qty": 100, "satuan": "Kilogram" },
-      { "nama": "Baja", "qty": 50, "satuan": "Kilogram" },
-      { "nama": "Baja", "qty": 10, "satuan": "Kilogram" }
-    ]
-  }
+      "order_id": "1131250818044",
+      "shipto": "JL. KH. AHMAD DAHLAN NO .148 KEL. MOJOROTO KEC. MOJOROTO KOTA KEDIRI JAWA TIMUR, KEDIRI",
+      "receiver": "KENCANA MAJU BERSAMA KEDIRI, PT",
+      "ship_date": "2025-12-10 00:00:00.000",
+      "NamaCustomer": "KENCANA MAJU BERSAMA KEDIRI, PT",
+      "Alamat": "JL. KH. AHMAD DAHLAN NO .148 KEL. MOJOROTO KEC. MOJOROTO KOTA KEDIRI JAWA TIMUR",
+      "CustomerId": "043766",
+      "mill_name": "KMB MOJOKERTO",
+      "status_cf_muat": "BELUM"
+    }
+  ],
+  "items": [
+    { "nama": "Baja", "qty": 100, "satuan": "Kilogram" },
+    { "nama": "Besi Beton 10mm", "qty": 200, "satuan": "Kilogram" },
+    { "nama": "Baja", "qty": 50, "satuan": "Kilogram" }
+  ]
 }

@@ -74,7 +74,7 @@
             </td>
             <td class="p-4 text-right text-sm text-slate-900 font-medium">
               {{ item.qty_ship }}
-              <span class="text-[10px] text-slate-400 ml-1">UNIT</span>
+              <span class="text-[10px] text-slate-400 ml-1">Unit</span>
             </td>
           </tr>
         </tbody>

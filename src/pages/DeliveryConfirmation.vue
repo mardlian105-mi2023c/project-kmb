@@ -1,7 +1,7 @@
 <template>
   <BaseDocumentLayout>
     <div
-      class="max-w-6xl mx-auto p-6 md:p-12 min-h-screen font-sans antialiased text-slate-800"
+      class="max-w-360 mx-auto p-6 md:p-10 min-h-screen antialiased text-slate-800"
     >
       <div
         v-if="loading"

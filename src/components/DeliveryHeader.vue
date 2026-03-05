@@ -3,7 +3,7 @@
     class="w-full bg-white rounded-2xl shadow-sm border border-slate-100 p-4 md:p-4 font-sans"
   >
     <div
-      class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-slate-50 pb-6"
+      class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4 border-b border-slate-50 pb-6"
     >
       <h2
         class="text-red-600 font-bold text-xl flex items-center tracking-tight"
@@ -13,28 +13,40 @@
       </h2>
 
       <div
-        class="flex items-center gap-3 bg-slate-50 px-4 py-2 rounded-lg border border-slate-100"
+        class="flex items-center justify-between bg-white px-5 py-3 rounded-xl border border-slate-200 shadow-sm"
       >
+        <div class="flex items-center gap-2">
+          <span
+            class="text-[11px] text-slate-400 px-3 font-semibold uppercase tracking-widest"
+          >
+            Status Muat:
+          </span>
+        </div>
+
         <span
-          class="text-[10px] text-slate-400 font-semibold uppercase tracking-[0.15em]"
-        >
-          Status Muat
-        </span>
-        <span
-          class="px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider"
+          class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold tracking-wide"
           :class="
             data.status_cf_muat === 'SUDAH'
-              ? 'bg-emerald-50 text-emerald-700'
-              : 'bg-amber-50 text-amber-700'
+              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+              : 'bg-amber-50 text-amber-700 border border-amber-200'
           "
         >
+          <span
+            class="w-1.5 h-1.5 rounded-full"
+            :class="
+              data.status_cf_muat === 'SUDAH'
+                ? 'bg-emerald-500'
+                : 'bg-amber-500'
+            "
+          ></span>
+
           {{ data.status_cf_muat }}
         </span>
       </div>
     </div>
 
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-10 mb-10 px-2"
+      class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-10 mb-10 px-2"
     >
       <InfoItem label="Nomor Pengiriman" :value="data.deliv_id?.trim()" />
       <InfoItem label="Nomor Pesanan" :value="data.order_id?.trim()" />
@@ -57,34 +69,54 @@
       />
     </div>
 
-    <div class="overflow-hidden rounded-xl border border-slate-100 shadow-sm">
-      <table class="w-full text-left border-collapse">
-        <thead>
-          <tr
-            class="bg-slate-50 text-slate-500 text-[10px] font-bold uppercase tracking-widest"
-          >
-            <th class="p-4 border-b border-slate-100">Deskripsi Material</th>
-            <th class="p-4 border-b border-slate-100 text-right w-32">
-              Kuantitas
-            </th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-slate-50">
-          <tr
-            v-for="(item, index) in details"
-            :key="index"
-            class="hover:bg-slate-50/30 transition-colors"
-          >
-            <td class="p-4 text-sm text-slate-700 font-normal">
-              {{ item.descr?.trim() }}
-            </td>
-            <td class="p-4 text-right text-sm text-slate-900 font-medium">
-              {{ item.qty_ship }}
-              <span class="text-[10px] text-slate-400 ml-1">Unit</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="overflow-x-auto">
+      <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+        <table class="w-full table-fixed border-collapse">
+          <thead>
+            <tr
+              class="bg-slate-50 text-slate-500 text-xs font-semibold uppercase tracking-wider"
+            >
+              <th
+                class="p-4 text-left text-xs border-b border-slate-200 w-[60%]"
+              >
+                Deskripsi Material
+              </th>
+
+              <th
+                class="p-4 text-center text-xs border-b border-slate-200 w-[20%]"
+              >
+                Dimensi Panjang
+              </th>
+
+              <th
+                class="p-4 text-right text-xs border-b border-slate-200 w-[20%]"
+              >
+                Qty
+              </th>
+            </tr>
+          </thead>
+
+          <tbody class="divide-y divide-slate-100">
+            <tr
+              v-for="(item, index) in details"
+              :key="index"
+              class="hover:bg-slate-50 transition"
+            >
+              <td class="p-4 text-sm text-slate-700">
+                {{ item.descr?.trim() }}
+              </td>
+
+              <td class="p-4 text-center text-sm text-slate-900 font-medium">
+                {{ item.length_ship }}
+              </td>
+
+              <td class="p-4 text-right text-sm text-slate-900 font-semibold">
+                {{ item.qty_ship }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>

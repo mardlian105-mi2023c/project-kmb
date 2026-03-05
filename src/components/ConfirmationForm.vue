@@ -2,9 +2,7 @@
   <div
     class="bg-white rounded-2xl shadow-sm border border-slate-100 p-4 md:p-4 sticky top-24 font-sans antialiased"
   >
-    <h3
-      class="text-red-600 font-semibold text-xs uppercase tracking-[0.15em] mb-6 flex items-center px-1"
-    >
+    <h3 class="text-red-600 font-bold text-l mb-6 flex items-center px-1">
       <span class="w-1.5 h-4 bg-red-600 rounded-full mr-3"></span>
       Konfirmasi Pengiriman
     </h3>

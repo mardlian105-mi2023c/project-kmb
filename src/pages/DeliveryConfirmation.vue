@@ -1,83 +1,20 @@
 <template>
   <BaseDocumentLayout>
-    <div class="w-full mt-5 min-h-screen antialiased text-slate-800">
-      <div
-        v-if="loading"
-        class="flex flex-col items-center justify-center py-40"
-      >
-        <div
-          class="animate-spin rounded-full h-10 w-10 border-t-2 border-slate-900"
-        ></div>
-        <p
-          class="mt-6 text-slate-400 text-[10px] tracking-[0.3em] uppercase font-semibold"
-        >
-          Sinkronisasi Data Sistem
-        </p>
-      </div>
+    <div class="w-full px-2 md:px-4 mt-5 antialiased text-slate-800">
+      <StatusLoading v-if="loading" />
 
-      <div
-        v-else-if="error"
-        class="max-w-md mx-auto bg-white p-10 rounded-xl shadow-sm border border-slate-200 text-center"
-      >
-        <div class="text-red-700 mb-4 font-serif italic text-lg">
-          Pemberitahuan
-        </div>
-        <p class="text-sm text-slate-500 mb-8 leading-relaxed">{{ error }}</p>
-        <button
-          @click="fetchData"
-          class="w-full bg-slate-900 text-white py-3.5 rounded-lg font-bold text-[10px] tracking-[0.2em] transition-all hover:bg-slate-800"
-        >
-          Muat Ulang Halaman
-        </button>
-      </div>
+      <StatusError v-else-if="error" :message="error" @retry="fetchData" />
 
-      <div
-        v-else-if="isSuccess"
-        class="max-w-2xl mx-auto bg-white p-12 rounded-2xl shadow-sm border border-slate-100 text-center animate-fade-in"
-      >
-        <div
-          class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-8"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        </div>
-        <h2 class="text-2xl font-bold text-slate-900 mb-3 tracking-tight">
-          Konfirmasi Berhasil Diterima
-        </h2>
-        <p
-          class="text-slate-500 mb-10 text-sm leading-relaxed max-w-sm mx-auto font-light"
-        >
-          Terima kasih. Respon konfirmasi Anda telah tercatat secara resmi oleh
-          PT Kencana Maju Bersama.
-        </p>
-        <button
-          @click="isSuccess = false"
-          class="text-slate-400 hover:text-red-700 font-bold uppercase text-[9px] tracking-[0.25em] transition-colors"
-        >
-          Kembali ke Rincian Dokumen
-        </button>
-      </div>
+      <StatusSuccess v-else-if="isSuccess" @back="isSuccess = false" />
 
       <div
         v-else-if="deliveryData"
-        class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
+        class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start w-full"
       >
-        <div class="lg:col-span-8">
+        <div class="lg:col-span-8 w-full">
           <DeliveryHeader :data="deliveryData" :details="details" />
         </div>
-        <div class="lg:col-span-4">
+        <div class="lg:col-span-4 w-full">
           <ConfirmationForm
             v-model="isAccepted"
             :form="form"
@@ -96,6 +33,9 @@ import api from "@/api/axios";
 import BaseDocumentLayout from "@/components/BaseDocumentLayout.vue";
 import DeliveryHeader from "@/components/DeliveryHeader.vue";
 import ConfirmationForm from "@/components/ConfirmationForm.vue";
+import StatusLoading from "@/components/Loading.vue";
+import StatusError from "@/components/StatusError.vue";
+import StatusSuccess from "@/components/StatusSuccess.vue";
 
 const deliveryData = ref(null);
 const details = ref([]);

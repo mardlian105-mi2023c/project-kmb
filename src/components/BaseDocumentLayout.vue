@@ -20,7 +20,7 @@
         </p>
       </div>
 
-      <div class="w-full px-6 xl:px-12 2xl:px-20">
+      <div class="w-full xl:px-12 2xl:px-20">
         <slot />
       </div>
     </div>

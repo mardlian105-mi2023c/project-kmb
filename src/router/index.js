@@ -3,29 +3,30 @@ import DeliveryConfirmation from "@/pages/DeliveryConfirmation.vue";
 
 const routes = [
   {
-    path: "/",
-    redirect: "/confirm/default",
-  },
-  {
-    path: "/confirm/:id",
+    path: "/delivery-confirmation/:id",
     name: "DeliveryConfirmation",
     component: DeliveryConfirmation,
     props: true,
-  },
-  {
-    path: "/confirm",
-    redirect: "/",
   },
   {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: {
       template: `
-        <div class="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-          <div class="text-center">
-            <h1 class="text-4xl font-bold text-gray-200">404</h1>
-            <p class="text-gray-500 mt-2">Halaman tidak ditemukan.</p>
-            <router-link to="/" class="mt-4 inline-block text-blue-600 font-medium">Kembali ke Beranda</router-link>
+        <div class="min-h-screen flex items-center justify-center bg-slate-50 p-6 font-sans antialiased text-slate-800">
+          <div class="text-center max-w-sm bg-white p-10 rounded-2xl border border-slate-100 shadow-sm">
+            <h1 class="text-6xl font-bold text-slate-100 tracking-tighter uppercase">404</h1>
+            <p class="text-slate-500 mt-4 text-sm font-medium leading-relaxed">
+              Dokumen tidak ditemukan atau tautan sudah tidak berlaku.
+            </p>
+            <div class="mt-8">
+              <a 
+                href="https://kencanaindonesia.co.id/" 
+                class="inline-block w-full py-3.5 bg-slate-900 text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-slate-800 transition-all"
+              >
+                Kembali ke Beranda
+              </a>
+            </div>
           </div>
         </div>`,
     },

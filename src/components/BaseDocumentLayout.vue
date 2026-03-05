@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-100">
+  <div class="min-h-screen max-w-full bg-gray-100">
     <div class="bg-red-600 px-4 py-3 flex items-center justify-between">
       <img src="@/assets/logo.svg" class="h-8 object-contain" />
     </div>
@@ -8,9 +8,9 @@
       <div class="text-center max-w-xl mx-auto">
         <h2 class="font-semibold">Customer yang terhormat,</h2>
         <p class="text-gray-600 text-sm mt-2">
-          Terima kasih telah membuka Dokumen resmi dari PT Kencana Maju Bersama
-          mohon untuk mengonfirmasi untuk keperluanpengiriman pada dokumen
-          dibawah
+          Terima kasih telah membuka dokumen resmi dari PT Kencana Maju Bersama
+          mohon untuk mengonfirmasi sebagai keperluan pengiriman pada dokumen
+          dibawah:
         </p>
       </div>
 

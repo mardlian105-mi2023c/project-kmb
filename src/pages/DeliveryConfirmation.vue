@@ -1,6 +1,6 @@
 <template>
   <BaseDocumentLayout>
-    <div class="mx-auto min-h-screen antialiased text-slate-800">
+    <div class="w-full mt-5 min-h-screen antialiased text-slate-800">
       <div
         v-if="loading"
         class="flex flex-col items-center justify-center py-40"

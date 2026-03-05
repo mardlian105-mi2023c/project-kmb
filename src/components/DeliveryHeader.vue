@@ -1,9 +1,9 @@
 <template>
   <div
-    class="bg-white rounded-2xl shadow-sm border border-slate-100 p-4 md:p-4 font-sans"
+    class="w-full bg-white rounded-2xl shadow-sm border border-slate-100 p-4 md:p-4 font-sans"
   >
     <div
-      class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4 border-b border-slate-50 pb-6"
+      class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-slate-50 pb-6"
     >
       <h2
         class="text-red-600 font-bold text-xl flex items-center tracking-tight"
@@ -33,33 +33,31 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12 mb-12">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-10 mb-10 px-2"
+    >
       <InfoItem label="Nomor Pengiriman" :value="data.deliv_id?.trim()" />
       <InfoItem label="Nomor Pesanan" :value="data.order_id?.trim()" />
+      <InfoItem label="Date Year" :value="data.ship_date?.split(' ')[0]" />
 
-      <InfoItem
-        label="Tanggal Pengiriman"
-        :value="data.ship_date?.split(' ')[0]"
-      />
       <InfoItem label="Dikirim Dari" :value="data.mill_name?.trim()" />
-
       <InfoItem label="Nomor Kendaraan" :value="data.vehicle_id?.trim()" />
       <InfoItem label="Nama Driver" :value="data.driver_id?.trim()" />
 
       <InfoItem
         label="Customer"
         :value="data.NamaCustomer?.trim()"
-        class="col-span-1 md:col-span-2 text-slate-900"
+        class="col-span-1 md:col-span-2 lg:col-span-3 text-slate-900 border-t border-slate-50 pt-4"
       />
 
       <InfoItem
         label="Alamat Kirim"
         :value="data.shipto?.trim()"
-        class="col-span-1 md:col-span-2 text-slate-600 leading-relaxed"
+        class="col-span-1 md:col-span-2 lg:col-span-3 text-slate-600 leading-relaxed"
       />
     </div>
 
-    <div class="overflow-hidden rounded-xl border border-slate-100">
+    <div class="overflow-hidden rounded-xl border border-slate-100 shadow-sm">
       <table class="w-full text-left border-collapse">
         <thead>
           <tr

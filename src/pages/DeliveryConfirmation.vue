@@ -94,14 +94,11 @@
 
 <script setup>
 import { ref, onMounted, reactive } from "vue";
-import { useRoute } from "vue-router";
 import api from "@/api/axios";
-
 import BaseDocumentLayout from "@/components/BaseDocumentLayout.vue";
 import DeliveryHeader from "@/components/DeliveryHeader.vue";
 import ConfirmationForm from "@/components/ConfirmationForm.vue";
 
-const route = useRoute();
 const deliveryData = ref(null);
 const details = ref([]);
 const loading = ref(true);
@@ -111,12 +108,31 @@ const error = ref(null);
 const isAccepted = ref(null);
 const form = reactive({ newDate: "", note: "" });
 
+const getDeliveryIdFromUrl = () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  return id ? id.toString().trim() : null;
+};
+
 const fetchData = async () => {
   try {
     loading.value = true;
     error.value = null;
+
+    const delivId = getDeliveryIdFromUrl();
+
+    if (!delivId) {
+      error.value = "Identitas dokumen tidak ditemukan dalam tautan.";
+      return;
+    }
+
+    if (delivId.length % 2 !== 0) {
+      error.value = "Format identitas dokumen tidak valid atau terpotong.";
+      return;
+    }
+
     const { data: res } = await api.post("/getDeliveryInfoCustomer", {
-      deliv_id: route.params.id,
+      deliv_id: delivId,
     });
 
     if (res.status === "success" && res.result.length > 0) {
@@ -134,6 +150,8 @@ const fetchData = async () => {
 };
 
 const handleConfirm = async () => {
+  const delivId = getDeliveryIdFromUrl();
+
   if (!isAccepted.value) {
     alert("Mohon tentukan status penerimaan Anda.");
     return;
@@ -158,22 +176,13 @@ const handleConfirm = async () => {
         : `${form.newDate} 00:00:00.000`;
 
     const payload = {
-      delivery_id: route.params.id,
+      delivery_id: delivId,
       customer_notes: form.note.trim(),
       cust_req_date: finalReqDate,
       requested_ship_date: isAccepted.value === "N" ? form.newDate : null,
     };
 
-    const response = await fetch(
-      "https://v2.kencana.org/api/confirmCustomerDelivery",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      },
-    );
-
-    const data = await response.json();
+    const { data } = await api.post("/confirmCustomerDelivery", payload);
 
     if (data.status === "success") {
       isSuccess.value = true;

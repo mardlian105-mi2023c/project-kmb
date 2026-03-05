@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-10 font-sans"
+    class="bg-white rounded-2xl shadow-sm border border-slate-100 p-4 md:p-4 font-sans"
   >
     <div
       class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4 border-b border-slate-50 pb-6"
@@ -17,8 +17,9 @@
       >
         <span
           class="text-[10px] text-slate-400 font-semibold uppercase tracking-[0.15em]"
-          >Status Muat</span
         >
+          Status Muat
+        </span>
         <span
           class="px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider"
           :class="
@@ -35,8 +36,15 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12 mb-12">
       <InfoItem label="Nomor Pengiriman" :value="data.deliv_id?.trim()" />
       <InfoItem label="Nomor Pesanan" :value="data.order_id?.trim()" />
-      <InfoItem label="Date Year" :value="data.ship_date?.split(' ')[0]" />
+
+      <InfoItem
+        label="Tanggal Pengiriman"
+        :value="data.ship_date?.split(' ')[0]"
+      />
       <InfoItem label="Dikirim Dari" :value="data.mill_name?.trim()" />
+
+      <InfoItem label="Nomor Kendaraan" :value="data.vehicle_id?.trim()" />
+      <InfoItem label="Nama Driver" :value="data.driver_id?.trim()" />
 
       <InfoItem
         label="Customer"
@@ -46,7 +54,7 @@
 
       <InfoItem
         label="Alamat Kirim"
-        :value="data.Alamat?.trim()"
+        :value="data.shipto?.trim()"
         class="col-span-1 md:col-span-2 text-slate-600 leading-relaxed"
       />
     </div>

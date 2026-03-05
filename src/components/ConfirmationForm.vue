@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white rounded-2xl shadow-sm border border-slate-100 p-4 md:p-8 sticky top-24 font-sans antialiased"
+    class="bg-white rounded-2xl shadow-sm border border-slate-100 p-4 md:p-4 sticky top-24 font-sans antialiased"
   >
     <h3
       class="text-slate-800 font-semibold text-xs uppercase tracking-[0.15em] mb-6 flex items-center px-1"
@@ -73,7 +73,7 @@
             >Tidak, Jadwalkan Ulang</span
           >
           <span class="text-[10px] text-slate-400 font-normal mt-0.5"
-            >Pilih tanggal kedatangan baru</span
+            >Pilih tanggal pengiriman</span
           >
         </div>
       </label>

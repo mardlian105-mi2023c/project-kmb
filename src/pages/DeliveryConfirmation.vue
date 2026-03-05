@@ -143,7 +143,8 @@ const fetchData = async () => {
       error.value = "Identitas dokumen tidak ditemukan dalam sistem kami.";
     }
   } catch (err) {
-    error.value = "Terjadi gangguan komunikasi dengan server logistik.";
+    error.value =
+      "Terjadi gangguan koneksi. Silakan periksa jaringan Anda dan coba lagi.";
   } finally {
     loading.value = false;
   }

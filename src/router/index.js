@@ -3,15 +3,9 @@ import DeliveryConfirmation from "@/pages/DeliveryConfirmation.vue";
 
 const routes = [
   {
-    path: "/confirm/default",
-    name: "DeliveryDefault",
+    path: "/",
+    name: "confirmation",
     component: DeliveryConfirmation,
-  },
-  {
-    path: "/confirm/:id",
-    name: "DeliveryConfirmation",
-    component: DeliveryConfirmation,
-    props: true,
   },
   {
     path: "/:pathMatch(.*)*",

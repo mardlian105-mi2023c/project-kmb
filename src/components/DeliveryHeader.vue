@@ -46,50 +46,49 @@
     </div>
 
     <div
-      class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-10 mb-10 px-2"
+      class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5 mb-8 px-2"
     >
       <InfoItem label="Nomor Pengiriman" :value="data.deliv_id?.trim()" />
-      <InfoItem label="Nomor Pesanan" :value="data.order_id?.trim()" />
-      <InfoItem label="Date Year" :value="data.ship_date?.split(' ')[0]" />
 
-      <InfoItem label="Dikirim Dari" :value="data.mill_name?.trim()" />
+      <InfoItem label="Nomor Pesanan" :value="data.order_id?.trim()" />
+
+      <InfoItem
+        label="Tanggal Pengiriman"
+        :value="data.ship_date?.split(' ')[0]"
+      />
+
+      <InfoItem label="Jasa Pengiriman" :value="data.exp_descr?.trim()" />
+
       <InfoItem label="Nomor Kendaraan" :value="data.vehicle_id?.trim()" />
+
       <InfoItem label="Nama Driver" :value="data.driver_id?.trim()" />
 
-      <InfoItem
-        label="Customer"
-        :value="data.NamaCustomer?.trim()"
-        class="col-span-1 md:col-span-2 lg:col-span-3 text-slate-900 border-t border-slate-50 pt-4"
-      />
+      <InfoItem label="Dikirim Dari" :value="data.mill_name?.trim()" />
 
-      <InfoItem
-        label="Alamat Kirim"
-        :value="data.shipto?.trim()"
-        class="col-span-1 md:col-span-2 lg:col-span-3 text-slate-600 leading-relaxed"
-      />
+      <InfoItem label="Customer" :value="data.NamaCustomer?.trim()" />
+
+      <InfoItem label="Alamat Kirim" :value="data.shipto?.trim()" />
     </div>
 
     <div class="overflow-x-auto">
-      <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
-        <table class="w-full table-fixed border-collapse">
+      <div class="overflow-hidden rounded-lg border border-slate-200">
+        <table class="w-full table-fixed border-collapse text-xs">
           <thead>
             <tr
-              class="bg-slate-50 text-slate-500 text-xs font-semibold uppercase tracking-wider"
+              class="bg-red-600 text-white text-[11px] font-semibold uppercase tracking-wide"
             >
-              <th
-                class="p-4 text-left text-xs border-b border-slate-200 w-[60%]"
-              >
+              <th class="px-3 py-2 text-left border-b border-slate-200 w-[65%]">
                 Deskripsi Material
               </th>
 
               <th
-                class="p-4 text-center text-xs border-b border-slate-200 w-[20%]"
+                class="px-3 py-2 text-center border-b border-slate-200 w-[20%]"
               >
-                Dimensi Panjang
+                Dimensi
               </th>
 
               <th
-                class="p-4 text-right text-xs border-b border-slate-200 w-[20%]"
+                class="px-3 py-2 text-right border-b border-slate-200 w-[15%]"
               >
                 Qty
               </th>
@@ -100,17 +99,19 @@
             <tr
               v-for="(item, index) in details"
               :key="index"
-              class="hover:bg-slate-50 transition"
+              class="hover:bg-slate-50 transition-colors"
             >
-              <td class="p-4 text-sm text-slate-700">
+              <td class="px-3 py-2 text-slate-700 text-[12px]">
                 {{ item.descr?.trim() }}
               </td>
 
-              <td class="p-4 text-center text-sm text-slate-900 font-medium">
+              <td class="px-3 py-2 text-center text-[12px] text-slate-800">
                 {{ item.length_ship }}
               </td>
 
-              <td class="p-4 text-right text-sm text-slate-900 font-semibold">
+              <td
+                class="px-3 py-2 text-right text-[12px] font-semibold text-slate-900"
+              >
                 {{ item.qty_ship }}
               </td>
             </tr>
